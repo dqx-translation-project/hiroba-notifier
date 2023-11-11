@@ -23,6 +23,12 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run notifier
+        env:
+          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
+          DISCORD_WEBHOOK_EVENTS_URL: ${{ secrets.DISCORD_WEBHOOK_EVENTS_URL }}
+          DISCORD_WEBHOOK_MAINTENANCE_URL: ${{ secrets.DISCORD_WEBHOOK_MAINTENANCE_URL }}
+          DISCORD_WEBHOOK_NEWS_URL: ${{ secrets.DISCORD_WEBHOOK_NEWS_URL }}
+          DISCORD_WEBHOOK_UPDATES_URL: ${{ secrets.DISCORD_WEBHOOK_UPDATES_URL }}
         run: python main.py
 
       - name: Commit status.json
