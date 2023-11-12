@@ -131,6 +131,13 @@ for category in news_categories:
 
             # post to webhook
             if WEBHOOK_URLS[table]:
+                if CATEGORIES[header] == 'maintenance':
+                    # only send maintenance notifications for game server outages.
+                    # '[All servers]' translated here.
+                    if '[全サーバー]' not in title:
+                        print(f"Maintenance notice found, but is not for all servers.")
+                        continue
+
                 notify_webhook(
                     category=CATEGORIES[header],
                     title=title_trl,
