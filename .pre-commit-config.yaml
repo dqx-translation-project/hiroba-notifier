@@ -34,7 +34,7 @@ repos:
     args: ['--py311-plus']
     exclude: ^app/pymem  # forked module
 - repo: https://github.com/pycqa/isort
-  rev: 9.0.0a3
+  rev: 9.0.0b1
   hooks:
     - id: isort
       name: Sort imports
